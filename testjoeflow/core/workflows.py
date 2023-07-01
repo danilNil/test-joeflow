@@ -8,6 +8,45 @@ from . import models
 from .views import UpdateWithPrevUserView
 
 
+class CreatePO(models.CreatePOWorkflow):
+    start = tasks.StartView(fields=[])
+
+    def check_file_on_ftp(self):
+        ''' Проверка есть ли файл на FTP сервере '''
+
+    def is_po_file(self):
+        ''' Является ли xml файл Production Order '''
+
+    def parse_po_file(self):
+        """ Парсинг Production Order """
+
+    def parse_po_error(self):
+        ''' Обработка ошибки при парсинге файла '''
+
+    def create_po_in_db(self):
+        ''' Запись Production Order в БД '''
+
+    def end(self):
+        pass
+
+    edges = (
+        (start, check_file_on_ftp),
+        (check_file_on_ftp, start),
+        (check_file_on_ftp, is_po_file),
+        (is_po_file, parse_po_file),
+        (parse_po_file, create_po_in_db),
+        (parse_po_file, parse_po_error),
+        (parse_po_error, end),
+        (create_po_in_db, end),
+        (is_po_file, end),
+    )
+
+    class Meta:
+        proxy = True
+
+
+
+
 class ShippingWorkflow(models.Shipment):
     checkout = tasks.StartView(fields=["shipping_address", "email"])
 

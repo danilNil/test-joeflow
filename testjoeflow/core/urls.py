@@ -1,4 +1,4 @@
-"""testapp URL Configuration
+"""core URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -27,4 +27,5 @@ urlpatterns = [
     path("splitjoin/", include(workflows.SplitJoinWorkflow.urls())),
     path("loop/", include(workflows.LoopWorkflow.urls())),
     path("welcome/", include(models.WelcomeWorkflow.urls())),
+    # path("create_po/", include(models..urls())),
 ]

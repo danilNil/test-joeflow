@@ -11,6 +11,10 @@ class Shipment(Workflow):
     tracking_code = models.TextField()
 
 
+class CreatePOWorkflow(Workflow):
+    pass
+
+
 class WelcomeWorkflow(Workflow):
     # state
     user = models.ForeignKey(
