@@ -12,6 +12,7 @@ class Shipment(Workflow):
 
 
 class CreatePOWorkflow(Workflow):
+
     pass
 
 

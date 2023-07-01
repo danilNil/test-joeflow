@@ -27,5 +27,5 @@ urlpatterns = [
     path("splitjoin/", include(workflows.SplitJoinWorkflow.urls())),
     path("loop/", include(workflows.LoopWorkflow.urls())),
     path("welcome/", include(models.WelcomeWorkflow.urls())),
-    # path("create_po/", include(models..urls())),
+    path("create_po/", include(workflows.CreatePO.urls())),
 ]
