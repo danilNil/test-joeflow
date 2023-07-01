@@ -132,3 +132,4 @@ dmypy.json
 .pyre/
 mes/mes/settings_local.py
 docker/data/
+*.sqlite3
